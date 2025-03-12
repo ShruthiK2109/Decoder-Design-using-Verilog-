@@ -1,0 +1,24 @@
+module decoder(opcode, enable, control);
+
+input [2:0] opcode; // decoder input 
+input enable;
+output [3:0] control; // decoder output
+
+reg [3:0] control; 
+
+always @(opcode, enable ) //
+begin
+
+    if(enable==0)   // when enable is zero
+        control = 4'b1111; 
+    else // when enable is high
+        if (opcode == 3'b000) // we get corresponding outputs for the inputs
+            control = 4'b0111; 
+        if (opcode == 3'b001)
+            control = 4'b1010; 
+        if (opcode == 3'b010)
+            control = 4'b1110; 
+        if (opcode == 3'b011); 
+            control = 4'b1001;
+     end
+endmodule

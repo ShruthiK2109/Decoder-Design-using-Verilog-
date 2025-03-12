@@ -1,0 +1,38 @@
+module decoder_tb;
+
+reg [2:0] opcode; 
+
+wire [3:0] control; // outputs 
+
+  reg enable;
+  decoder uut(opcode,enable,control); 
+
+
+
+initial begin
+
+    opcode = 3'b000; //input 000
+    enable = 1'b0; 
+    #10 //wait some time
+
+    enable = 1'b1; // enable on
+    #10; 
+
+    opcode = 3'b001; //input 001
+    #10;  
+    opcode = 3'b010; //input 010
+    #10;        
+    opcode = 3'b011; //input 011
+    #10; 
+    enable = 1'b0; // enable off
+    #10; 
+    end 
+
+  initial
+    begin
+      $dumpvars(0,decoder_tb);
+      $dumpfile("my.vcd");
+    end
+    
+
+endmodule
