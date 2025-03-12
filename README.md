@@ -1,1 +1,2 @@
 # Decoder-Design-using-Verilog-
+This project implements a 3-to-4 line decoder that generates a 4-bit control output based on a 3-bit opcode and a 1-bit enable signal. When enable is low, the output is fixed to 4'b1111, and when enable is high, the decoder produces different 4-bit control values depending on the opcode input. A testbench is used to simulate various input combinations for opcode and enable, observing the resulting control output and saving the simulation data in a VCD file for analysis. The decoder's functionality is verified through this testbench.
